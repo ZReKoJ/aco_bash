@@ -1,5 +1,7 @@
 #! /bin/bash
 
-echo hello world
+[ ! -d "process" ] && mkdir process
 
-exit 0;
+
+
+exit 0
