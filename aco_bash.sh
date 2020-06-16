@@ -29,21 +29,44 @@ echo "beta $BETA" >> $INFO_FILE
 echo "evaporation $EVAPORATION" >> $INFO_FILE
 echo "secuence 1" >> $INFO_FILE 
 
-echo "Starting script ..."
+echo "`date +'%Y/%d/%m %H:%M:%S'` Starting script ..."
 
 if [ -f "cities.sh" ];
 then
-	echo "Creating cities ..."
+	echo "`date +'%Y/%d/%m %H:%M:%S'` Creating cities ..."
 	cp cities.sh process/
 	cd process
 	chmod +x cities.sh
 	./cities.sh
 	cd ..
 else
-	echo "Error: File cities.sh not found"
+	echo "`date +'%Y/%d/%m %H:%M:%S'` Error: File cities.sh not found"
 	exit 1
 fi
 
-echo "Finish"
+if [ -f "ant.sh" ];
+then
+        cp ant.sh process/
+        cd process
+        chmod +x ant.sh
+        cd ..
+else
+        echo "`date +'%Y/%d/%m %H:%M:%S'` Error: File ant.sh not found"
+        exit 1
+fi
+
+if [ -f "colony.sh" ];
+then
+        cp colony.sh process/
+        cd process
+        chmod +x colony.sh
+        ./colony.sh
+        cd ..
+else
+        echo "`date +'%Y/%d/%m %H:%M:%S'` Error: File colony.sh not found"
+        exit 1
+fi
+
+echo "`date +'%Y/%d/%m %H:%M:%S'` Finish"
 
 exit 0
