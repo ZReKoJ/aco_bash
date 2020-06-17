@@ -8,6 +8,8 @@ EVAPORATION=`grep evaporation .information | awk '{print $2}'`
 echo "============================================================"
 echo "`date +'%Y/%d/%m %H:%M:%S'` Creating ants ..."
 
+init_seq=`grep sequence .information | awk '{print $2}'`
+
 for i in `seq 1 $ANTS`
 do
 	seq=`grep sequence .information | awk '{print $2}'`
@@ -36,6 +38,11 @@ cd cities
 
 echo "============================================================"
 echo "`date +'%Y/%d/%m %H:%M:%S'` Applying evaporation ..." 
+
+for ((i=$init_seq; i <= $ANTS; i++))
+{
+	echo $i
+}
 
 for i in `seq 1 $CITIES`
 do
