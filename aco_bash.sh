@@ -7,10 +7,10 @@ rm -rf process
 # Variables
 
 ALPHA=0.5
-BETA=0.5
+BETA=0.6
 EVAPORATION=0.8
-ANTS=10
-CITIES=50
+ANTS=5
+CITIES=5
 
 # Constants
 
@@ -27,7 +27,7 @@ echo "cities $CITIES" >> $INFO_FILE
 echo "alpha $ALPHA" >> $INFO_FILE
 echo "beta $BETA" >> $INFO_FILE
 echo "evaporation $EVAPORATION" >> $INFO_FILE
-echo "secuence 1" >> $INFO_FILE 
+echo "sequence 1" >> $INFO_FILE 
 
 echo "`date +'%Y/%d/%m %H:%M:%S'` Starting script ..."
 

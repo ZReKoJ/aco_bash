@@ -25,7 +25,7 @@ do
 			if [ $i -gt $j ];
 			then
 				rand=`grep "distance_$i " city_$j/.distance | awk '{print $2}'`
-				echo "distance_$j 1" >> .distance
+				echo "distance_$j $rand" >> .distance
 				echo "`date +'%Y/%d/%m %H:%M:%S'` Distance to city $j is $rand"
 			else
 				rand=$((1 + RANDOM % 10))
