@@ -9,13 +9,14 @@ cd cities
 
 for i in `seq 1 $CITIES`;
 do
+	echo "============================================================"
 	echo "`date +'%Y/%d/%m %H:%M:%S'` Creating city $i ..."
-	
+
 	mkdir city_$i
 	cd city_$i
 
 	echo "`date +'%Y/%d/%m %H:%M:%S'` Initialize pheromone with 1"
-        echo 1 > .pheromone
+        echo 0.01 > .pheromone
 
 	for j in `seq 1 $CITIES`;
 	do
@@ -27,10 +28,12 @@ do
 				rand=`grep "distance_$i " city_$j/.distance | awk '{print $2}'`
 				echo "distance_$j $rand" >> .distance
 				echo "`date +'%Y/%d/%m %H:%M:%S'` Distance to city $j is $rand"
+				echo "$i $j $rand" >> $ROOT_PWD/process/.result
 			else
 				rand=$((1 + RANDOM % 10))
 				echo "distance_$j $rand" >> .distance
 				echo "`date +'%Y/%d/%m %H:%M:%S'` Distance to city $j is $rand"
+				echo "$i $j $rand" >> $ROOT_PWD/process/.result
 			fi
 		fi
 	done	

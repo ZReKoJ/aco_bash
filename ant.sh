@@ -29,6 +29,7 @@ then
 	
 	pheromones=0
 	city_chosen=-1
+	distance=-1
 		
 	for ((i = 1; i <= $CITIES; i++))
 	{
@@ -49,6 +50,7 @@ then
 			then 
 				pheromones=$phe
 				city_chosen=$i
+				distance=$d
 			fi
 	        fi
 	}
@@ -58,9 +60,11 @@ then
 	mv ant_$NUM_ANT.sh city_$city_chosen/
 	cd -P city_$city_chosen
 	p=`cat .pheromone`
-	p=$((p + 1))
+	p=`echo "$p + 1 / $d" | bc -l`
 	echo $p > .pheromone
-	cat .pheromone
+	
+	echo "`date +'%Y/%d/%m %H:%M:%S'` Ant $NUM_ANT applies $p pheromone to the route"
+
 	./ant_$NUM_ANT.sh $@ $city_chosen
 	cd ..
 else
