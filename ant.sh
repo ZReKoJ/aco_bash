@@ -60,7 +60,7 @@ then
 	mv ant_$NUM_ANT.sh city_$city_chosen/
 	cd -P city_$city_chosen
 	p=`cat .pheromone`
-	p=`echo "$p + 1 / $d" | bc -l`
+	p=`echo "$p + (1 / $d)" | bc -l`
 	echo $p > .pheromone
 	
 	echo "`date +'%Y/%d/%m %H:%M:%S'` Ant $NUM_ANT applies $p pheromone to the route"

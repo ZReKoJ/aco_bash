@@ -6,12 +6,12 @@ rm -rf process
 
 # Variables
 
-ALPHA=0.5
-BETA=0.6
-EVAPORATION=0.8
+ALPHA=1.0
+BETA=5.0
+EVAPORATION=0.5
 ANTS=5
 CITIES=5
-ITERATION=1
+ITERATION=10
 
 # Constants
 
